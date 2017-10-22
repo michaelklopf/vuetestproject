@@ -24,6 +24,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'tachyons$': 'tachyons/css/tachyons.min.css'
     }
   },
   module: {

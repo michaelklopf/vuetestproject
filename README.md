@@ -30,3 +30,21 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Tachyons
+
+### Reading
+https://github.com/dwyl/learn-tachyons  
+https://gist.github.com/levibostian/96cc285d4235d73f09cdc22f2590ccba  
+https://medium.com/@dakotaleemartinez/keeping-your-css-dry-with-tachyons-bb1c0dc66dce  
+https://hackernoon.com/full-re-write-with-tachyons-and-functional-css-a-case-study-part-1-635ccb5fb00b#.c6zw5yr6b  
+
+### Documentation
+#### Basics
+https://github.com/tachyons-css/tachyons  
+
+#### Components
+http://tachyons.io/components/  
+
+Card: http://tachyons.io/components/cards/product-card/index.html  
+Collection: http://tachyons.io/components/collections/albums/index.html  
