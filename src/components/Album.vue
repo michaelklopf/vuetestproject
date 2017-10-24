@@ -1,84 +1,113 @@
 <template>
-  <article class="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">
-    <img src="http://placekitten.com/g/600/300" class="db w-100 br2 br--top" alt="Photo of a kitten looking menacing.">
-    <div class="pa2 ph3-ns pb3-ns">
-      <div class="dt w-100 mt1">
-        <div class="dtc">
-          <h1 class="f5 f4-ns mv0">Cat</h1>
-        </div>
-        <div class="dtc tr">
-          <h2 class="f5 mv0">$1,000</h2>
-        </div>
-      </div>
-      <p class="f6 lh-copy measure mt2 mid-gray">
-        If it fits, i sits burrow under covers. Destroy couch leave hair everywhere,
-        and touch water with paw then recoil in horror.
-      </p>
-    </div>
-  </article>
+  <div class="fl w-50 w-25-m w-20-l pa2">
+    <a v-bind:href="linkText" class="db link dim tc">
+      <img
+        v-bind:src="pictureLink"
+        v-bind:alt="pictureAltText"
+        class="w-100 db outline black-10"
+      />
+      <dl class="mt2 f6 lh-copy">
+        <dt class="clip">Title</dt>
+        <dd class="ml0 black truncate w-100">{{ album.title }}</dd>
+        <dt class="clip">Artist</dt>
+        <dd class="ml0 gray truncate w-100">{{ album.artist }}</dd>
+      </dl>
+    </a>
+  </div>
 </template>
 
 <script>
-
+export default {
+  props: {
+    album: {
+      type: Object,
+      required: true,
+    },
+  },
+  computed: {
+    pictureAltText() {
+      return `${this.album.artist} ${this.album.title} Album Cover`;
+    },
+    linkText() {
+      return `https://www.last.fm/music/${this.album.artist}`;
+    },
+    pictureLink() {
+      return `/static/${this.album.picture}`;
+    },
+  },
+};
 </script>
 
-<style scoped>
-.ba {
-    border-style: solid;
-    border-width: 1px;
-}
-
-.b--black-10 {
-    border-color: rgba(0, 0, 0, .1);
-}
-
-.br2 {
-    border-radius: .25rem;
-}
-
-.br--top {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+<style>
+.outline {
+    outline: 1px solid;
 }
 
 .db {
     display: block;
 }
 
-.dt {
-    display: table;
+.fl {
+    float: left;
+    _display: inline;
 }
 
-.dtc {
-    display: table-cell;
+.fw4 {
+    font-weight: 400;
 }
 
 .lh-copy {
     line-height: 1.5;
 }
 
-.mw5 {
-    max-width: 16rem;
+.link {
+    text-decoration: none;
+    transition: color .15s ease-in;
+}
+
+.link:link, .link:visited {
+    transition: color .15s ease-in;
+}
+
+.link:hover {
+    transition: color .15s ease-in;
+}
+
+.link:active {
+    transition: color .15s ease-in;
+}
+
+.link:focus {
+    transition: color .15s ease-in;
+    outline: 1px dotted currentColor;
+}
+
+.w-50 {
+    width: 50%;
 }
 
 .w-100 {
     width: 100%;
 }
 
-.dark-gray {
-    color: #333;
+.black-10 {
+    color: rgba(0, 0, 0, .1);
 }
 
-.mid-gray {
-    color: #555;
+.black {
+    color: #000;
 }
 
-.pa2 {
-    padding: .5rem;
+.gray {
+    color: #777;
 }
 
-.mt1 {
-    margin-top: .25rem;
+.pa3 {
+    padding: 1rem;
+}
+
+.ml0 {
+    margin-left: 0;
 }
 
 .mt2 {
@@ -90,56 +119,59 @@
     margin-bottom: 0;
 }
 
-.mv4 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+.tc {
+    text-align: center;
 }
 
-.tr {
-    text-align: right;
+.ttu {
+    text-transform: uppercase;
 }
 
-.f5 {
-    font-size: 1rem;
+.f3 {
+    font-size: 1.5rem;
 }
 
 .f6 {
     font-size: .875rem;
 }
 
-.measure {
-    max-width: 30em;
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.center {
-    margin-right: auto;
-    margin-left: auto;
+.clip {
+    position: fixed !important;
+    _position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
 }
 
-@media screen and (min-width: 30em) {
-    .pb3-ns {
-        padding-bottom: 1rem;
-    }
+.dim {
+    opacity: 1;
+    transition: opacity .15s ease-in;
+}
 
-    .ph3-ns {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+.dim:hover, .dim:focus {
+    opacity: .5;
+    transition: opacity .15s ease-in;
+}
 
-    .f4-ns {
-        font-size: 1.25rem;
-    }
+.dim:active {
+    opacity: .8;
+    transition: opacity .15s ease-out;
 }
 
 @media screen and (min-width: 30em) and (max-width: 60em) {
-    .w-50-m {
-        width: 50%;
+    .w-25-m {
+        width: 25%;
     }
 }
 
 @media screen and (min-width: 60em) {
-    .w-25-l {
-        width: 25%;
+    .w-20-l {
+        width: 20%;
     }
 }
 </style>

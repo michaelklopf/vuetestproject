@@ -42,6 +42,8 @@ https://hackernoon.com/full-re-write-with-tachyons-and-functional-css-a-case-stu
 ### Documentation
 #### Basics
 https://github.com/tachyons-css/tachyons  
+For Debugging:  
+https://github.com/tachyons-css/tachyons/blob/master/css/tachyons.css  
 
 #### Components
 http://tachyons.io/components/  
